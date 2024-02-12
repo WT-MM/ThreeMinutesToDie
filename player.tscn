@@ -1,5 +1,20 @@
-[gd_scene format=3 uid="uid://b38iegm15si82"]
+[gd_scene load_steps=4 format=3 uid="uid://lfju084ai38w"]
 
-[node name="character" type="CharacterBody2D"]
+[ext_resource type="Texture2D" uid="uid://xotp6bs0x21" path="res://Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_22kt1"]
+[ext_resource type="Script" path="res://player.gd" id="1_olsbu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3q31n"]
+radius = 8.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-2, 2)
+script = ExtResource("1_olsbu")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_22kt1")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_3q31n")
