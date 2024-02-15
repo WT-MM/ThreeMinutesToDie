@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://lfju084ai38w"]
 
 [ext_resource type="Texture2D" uid="uid://xotp6bs0x21" path="res://Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_22kt1"]
-[ext_resource type="Script" path="res://player.gd" id="1_olsbu"]
+[ext_resource type="Script" path="res://character/player.gd" id="1_olsbu"]
 [ext_resource type="Texture2D" uid="uid://eenlym43y2ik" path="res://Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_y7khg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8n8gg"]
@@ -20,29 +20,29 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_22kt1")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0y4m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhiko"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(18, 32, 51, 32)
+region = Rect2(17, 32, 38, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dks1x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g3bd"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(81, 32, 51, 32)
+region = Rect2(82, 32, 38, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8bgmx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bycrp"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(144, 32, 51, 32)
+region = Rect2(147, 32, 38, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3k7f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qwrm"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(207, 32, 51, 32)
+region = Rect2(212, 32, 38, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35wtb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ku8"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(270, 32, 51, 32)
+region = Rect2(277, 32, 38, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfsam"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ey4"]
 atlas = ExtResource("3_y7khg")
-region = Rect2(333, 32, 51, 32)
+region = Rect2(342, 32, 38, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uo7qg"]
 animations = [{
@@ -64,23 +64,23 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_s0y4m")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_bhiko")
 }, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_dks1x")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0g3bd")
 }, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_8bgmx")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_bycrp")
 }, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_r3k7f")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4qwrm")
 }, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_35wtb")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_35ku8")
 }, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_jfsam")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_k8ey4")
 }],
 "loop": true,
 "name": &"run",
@@ -100,7 +100,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 sprite_frames = SubResource("SpriteFrames_uo7qg")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.376538
+frame_progress = 0.852539
 centered = false
 
 [node name="characterCollision" type="CollisionShape2D" parent="."]

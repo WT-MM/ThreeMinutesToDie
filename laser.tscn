@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://er7pyv2p7has"]
+
+[ext_resource type="Script" path="res://Laser.gd" id="1_chydn"]
+[ext_resource type="Texture2D" uid="uid://cdktuxbw2b53r" path="res://laser.png" id="2_tfpbd"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_58383"]
+a = Vector2(1, 0)
+b = Vector2(8, 0)
+
+[node name="Laser" type="CharacterBody2D"]
+script = ExtResource("1_chydn")
+
+[node name="LaserSprite" type="Sprite2D" parent="."]
+position = Vector2(5, -1.19209e-07)
+scale = Vector2(0.051875, 0.0288462)
+texture = ExtResource("2_tfpbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserSprite"]
+position = Vector2(0, 4.13257e-06)
+scale = Vector2(1, 0.5)
+shape = SubResource("SegmentShape2D_58383")
