@@ -4,7 +4,9 @@ extends CharacterBody2D
 @export var speed : float =  150
 @export var jump_velocity : float = -150
 
-@onready var animated_sprite : AnimatedSprite2D = $playerAnimation
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var animation_tree : AnimationTree = $AnimationTree
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +17,9 @@ var playerPos = Vector2();
 
 func _process(delta):
 	playerPos = self.position
+	
+func _ready():
+	animation_tree.active = true
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,7 +33,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("Left", "Right", "Up", "Down")
-	if direction:
+	if direction.x != 0:
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -38,15 +43,11 @@ func _physics_process(delta):
 	update_facing_direction()
 
 func update_animation():
-	if not animation_locked:
-		if direction.x != 0:
-			animated_sprite.play("run")
-		else: 
-			animated_sprite.play("idle")
-			
+	animation_tree.set("parameters/move/blend_position", direction.x)
+
 
 func update_facing_direction():
 	if direction.x > 0:
-		animated_sprite.flip_h = false
+		sprite.flip_h = false
 	elif direction.x < 0:
-		animated_sprite.flip_h = true
+		sprite.flip_h = true
