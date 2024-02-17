@@ -11,6 +11,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked : bool = false
 var direction: Vector2 = Vector2.ZERO
 
+var playerPos = Vector2();
+
+func _process(delta):
+	playerPos = self.position
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,7 +36,6 @@ func _physics_process(delta):
 	move_and_slide()
 	update_animation()
 	update_facing_direction()
- 
 
 func update_animation():
 	if not animation_locked:
