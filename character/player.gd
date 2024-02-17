@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed : float =  150
-@export var jump_velocity : float = -150
+
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -46,6 +46,9 @@ func _physics_process(delta):
 
 func update_animation():
 	animation_tree.set("parameters/move/blend_position", direction.x)
+	
+func jump():
+	
 
 
 func update_facing_direction():
