@@ -11,7 +11,6 @@ extends CharacterBody2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var animation_locked : bool = false
 var direction: Vector2 = Vector2.ZERO
 
 var playerPos = Vector2();
@@ -26,11 +25,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_velocity
-
+		pass 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -41,18 +38,15 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	move_and_slide()
-	update_animation()
+	update_animation_parameters()
 	update_facing_direction()
 
-func update_animation():
+func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
-	
-func jump():
-	
-
 
 func update_facing_direction():
 	if direction.x > 0:
 		sprite.flip_h = false
 	elif direction.x < 0:
 		sprite.flip_h = true
+		
