@@ -1398,3 +1398,4 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="skeleton" parent="." instance=ExtResource("14_ebb7t")]
+position = Vector2(438, 302)
