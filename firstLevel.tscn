@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=22 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://d0jljfi7mr8hw" path="res://Parallax_Backgrounds_Cave/0.png" id="8_1shg7"]
 [ext_resource type="Script" path="res://TileMap.gd" id="13_vtrg0"]
 [ext_resource type="PackedScene" uid="uid://bhpd7crrx11af" path="res://enemies/skeleton.tscn" id="14_ebb7t"]
+[ext_resource type="PackedScene" uid="uid://dfswljj516v17" path="res://UI/health_change.tscn" id="16_apo5f"]
+[ext_resource type="Script" path="res://UI/health_change.gd" id="17_6ocoo"]
+[ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhtdq"]
 texture = ExtResource("1_w85ul")
@@ -1379,13 +1382,13 @@ layer_0/tile_data = PackedInt32Array(65535, 655360, 7, 131071, 655360, 8, 196607
 script = ExtResource("13_vtrg0")
 
 [node name="player" parent="." instance=ExtResource("3_htets")]
-position = Vector2(456, 285)
+position = Vector2(417, 275)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(456, 285)
+position = Vector2(417, 275)
 offset = Vector2(2.08165e-12, 2.08165e-12)
 zoom = Vector2(6, 6)
 process_callback = 0
@@ -1398,4 +1401,8 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="skeleton" parent="." instance=ExtResource("14_ebb7t")]
-position = Vector2(438, 302)
+position = Vector2(488, 300)
+
+[node name="HealthChange" parent="." instance=ExtResource("16_apo5f")]
+script = ExtResource("17_6ocoo")
+health_changed_label = ExtResource("18_gpn0x")

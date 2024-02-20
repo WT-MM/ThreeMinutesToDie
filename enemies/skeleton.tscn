@@ -110,8 +110,8 @@ _data = {
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g2ubc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kuiow"]
-radius = 9.0
-height = 36.0
+radius = 13.0
+height = 38.0
 
 [node name="skeleton" type="CharacterBody2D"]
 
@@ -134,3 +134,4 @@ shape = SubResource("CapsuleShape2D_kuiow")
 
 [node name="damageable" type="Node" parent="."]
 script = ExtResource("3_240ca")
+health = 50.0
