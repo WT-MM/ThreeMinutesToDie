@@ -427,9 +427,9 @@ speed = 125.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("6_xlbh4")
+texture = ExtResource("3_h14l3")
 centered = false
-hframes = 8
+hframes = 4
 
 [node name="characterCollision" type="CollisionShape2D" parent="."]
 position = Vector2(14, 31)
