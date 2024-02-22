@@ -7,7 +7,7 @@ class_name Player
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
-@onready var state_machine : CharacterStateMachine = $CharacterStateMachine 
+@onready var state_machine : CharacterStateMachine = $characterStateMachine
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

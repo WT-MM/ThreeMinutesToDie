@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var movement_speed : float = 30
 @export var hit_state : State 
 
-@onready var state_machine : CharacterStateMachine = $CharacterStateMachine
+@onready var state_machine : CharacterStateMachine = $characterStateMachine
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

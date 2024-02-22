@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dloeckn18v2pu" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_run.png" id="2_hqwdr"]
 [ext_resource type="Texture2D" uid="uid://cicuvxw61xf1b" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_jump.png" id="2_xxp7l"]
 [ext_resource type="Texture2D" uid="uid://p8mgumhvdl3k" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_idle.png" id="3_h14l3"]
+[ext_resource type="Script" path="res://character/characterStateMachine.gd" id="4_b0lc2"]
 [ext_resource type="Script" path="res://character/GroundState.gd" id="5_m4iyt"]
 [ext_resource type="Script" path="res://character/AirState.gd" id="6_kqfe7"]
 [ext_resource type="Texture2D" uid="uid://bt80ylu2vk2uu" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_attack2.png" id="6_xlbh4"]
 [ext_resource type="Texture2D" uid="uid://48yf3l7ni02m" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_attack3.png" id="7_6kukr"]
 [ext_resource type="Script" path="res://character/LandingState.gd" id="7_wy27p"]
 [ext_resource type="Script" path="res://character/stateDebugLabel.gd" id="8_q20m1"]
-[ext_resource type="Script" path="res://character/characterStateMachine.gd" id="9_0yiuv"]
 [ext_resource type="Script" path="res://character/Attack.gd" id="13_3ed66"]
 [ext_resource type="Script" path="res://character/Punch.gd" id="15_fig5u"]
 [ext_resource type="Script" path="res://character/FacingCollisionShape2D.gd" id="16_427xh"]
@@ -401,103 +401,4 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hpcjw"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1mkmj"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q2hh6"]
-states/Start/position = Vector2(184.5, 90.5)
-states/attack_1/node = SubResource("AnimationNodeAnimation_76det")
-states/attack_1/position = Vector2(400.05, 261.662)
-states/attack_2/node = SubResource("AnimationNodeAnimation_01m0w")
-states/attack_2/position = Vector2(533.05, 261.662)
-states/jump/node = SubResource("AnimationNodeAnimation_v7gyi")
-states/jump/position = Vector2(421, 45.5)
-states/move/node = SubResource("AnimationNodeBlendSpace1D_eir0w")
-states/move/position = Vector2(422, 168.5)
-states/run_attack/node = SubResource("AnimationNodeAnimation_5i23p")
-states/run_attack/position = Vector2(214.2, 245.447)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_g6eqw"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_wbuuo"), "jump", "move", SubResource("AnimationNodeStateMachineTransition_tkiw3"), "move", "attack_1", SubResource("AnimationNodeStateMachineTransition_024xm"), "attack_1", "attack_2", SubResource("AnimationNodeStateMachineTransition_nccvf"), "attack_1", "move", SubResource("AnimationNodeStateMachineTransition_lr0fw"), "attack_2", "move", SubResource("AnimationNodeStateMachineTransition_l7bbu"), "move", "run_attack", SubResource("AnimationNodeStateMachineTransition_hpcjw"), "run_attack", "move", SubResource("AnimationNodeStateMachineTransition_1mkmj")]
-graph_offset = Vector2(107.16, 50.407)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pe7p"]
-size = Vector2(9, 32)
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(-2, 2)
-collision_layer = 2
-script = ExtResource("1_olsbu")
-speed = 125.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("3_h14l3")
-centered = false
-hframes = 4
-
-[node name="characterCollision" type="CollisionShape2D" parent="."]
-position = Vector2(14, 31)
-shape = SubResource("CapsuleShape2D_3q31n")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_gk2ei")
-}
-tree_root = SubResource("AnimationNodeStateMachine_q2hh6")
-advance_expression_base_node = NodePath("../AnimationPlayer")
-parameters/move/blend_position = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="characterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
-script = ExtResource("9_0yiuv")
-current_state = NodePath("Ground")
-character = NodePath("..")
-animation_tree = NodePath("../AnimationTree")
-
-[node name="Ground" type="Node" parent="characterStateMachine" node_paths=PackedStringArray("air_state", "attack_state")]
-script = ExtResource("5_m4iyt")
-air_state = NodePath("../Air")
-attack_state = NodePath("../Attack")
-
-[node name="Air" type="Node" parent="characterStateMachine" node_paths=PackedStringArray("landing_state")]
-script = ExtResource("6_kqfe7")
-landing_state = NodePath("../Ground")
-
-[node name="Landing" type="Node" parent="characterStateMachine" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("7_wy27p")
-ground_state = NodePath("../Ground")
-
-[node name="Attack" type="Node" parent="characterStateMachine" node_paths=PackedStringArray("return_state")]
-script = ExtResource("13_3ed66")
-return_state = NodePath("../Ground")
-can_move = false
-
-[node name="Timer" type="Timer" parent="characterStateMachine/Attack"]
-wait_time = 0.3
-one_shot = true
-
-[node name="stateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-offset_left = -30.0
-offset_top = -35.0
-offset_right = 10.0
-offset_bottom = -12.0
-text = "State: "
-script = ExtResource("8_q20m1")
-state_machine = NodePath("../characterStateMachine")
-
-[node name="Punch" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_shape")]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("15_fig5u")
-player = NodePath("..")
-facing_shape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Punch"]
-position = Vector2(27, 31)
-shape = SubResource("RectangleShape2D_0pe7p")
-script = ExtResource("16_427xh")
-facing_left_position = Vector2(-3, 5)
-facing_right_position = Vector2(3, 5)
-
-[connection signal="animation_finished" from="AnimationTree" to="characterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="characterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
-[connection signal="body_entered" from="Punch" to="Punch" method="_on_body_entered"]
+[sub_resource type="AnimationNodeS

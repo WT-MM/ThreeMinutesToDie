@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://enemies/skeleton.gd" id="1_qn3ab"]
 [ext_resource type="Texture2D" uid="uid://uge8285m4cgi" path="res://enemies/Skeleton Walk.png" id="2_wtju7"]
 [ext_resource type="Script" path="res://enemies/damageable.gd" id="3_240ca"]
-[ext_resource type="Script" path="res://character/characterStateMachine.gd" id="5_2ljsl"]
 [ext_resource type="Script" path="res://character/State.gd" id="6_guuv3"]
+[ext_resource type="Script" path="res://character/characterStateMachine.gd" id="6_h3n3p"]
 [ext_resource type="Script" path="res://enemies/HitState.gd" id="7_83g0l"]
 
 [sub_resource type="Animation" id="Animation_44vkh"]
@@ -184,7 +184,7 @@ height = 38.0
 [node name="skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 collision_layer = 4
 script = ExtResource("1_qn3ab")
-hit_state = NodePath("CharacterStateMachine/Hit")
+hit_state = NodePath("characterStateMachine/Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -207,29 +207,29 @@ shape = SubResource("CapsuleShape2D_kuiow")
 script = ExtResource("3_240ca")
 health = 50.0
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
-script = ExtResource("5_2ljsl")
+[node name="characterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
+script = ExtResource("6_h3n3p")
 current_state = NodePath("Walk")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Walk" type="Node" parent="CharacterStateMachine"]
+[node name="Walk" type="Node" parent="characterStateMachine"]
 script = ExtResource("6_guuv3")
 
-[node name="Death" type="Node" parent="CharacterStateMachine"]
+[node name="Death" type="Node" parent="characterStateMachine"]
 script = ExtResource("6_guuv3")
 can_move = false
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
+[node name="Hit" type="Node" parent="characterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
 script = ExtResource("7_83g0l")
 damageable = NodePath("../../damageable")
 dead_state = NodePath("../Death")
 return_state = NodePath("../Walk")
 can_move = false
 
-[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+[node name="Timer" type="Timer" parent="characterStateMachine/Hit"]
 wait_time = 0.25
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="damageable" method="_on_animation_tree_animation_finished"]
-[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="characterStateMachine/Hit/Timer" to="characterStateMachine/Hit" method="_on_timer_timeout"]
