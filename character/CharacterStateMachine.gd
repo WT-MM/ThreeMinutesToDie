@@ -1,6 +1,6 @@
 extends Node
 
-class_name characterStateMachine
+class_name CharacterStateMachine
 
 var states : Array[State]
 @export var current_state: State 
