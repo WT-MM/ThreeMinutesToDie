@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d040uwcj344ty"]
+
+[ext_resource type="FontFile" uid="uid://8jwu7cxfi536" path="res://fonts/lunchds.ttf" id="1_2wnv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrvb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uig3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_803c8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0dnh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0c5i"]
+
+[resource]
+default_font = ExtResource("1_2wnv5")
+Button/colors/font_focus_color = Color(0.00392157, 0.113725, 0.521569, 1)
+Button/colors/font_hover_color = Color(0.129412, 0.192157, 0.85098, 1)
+Button/colors/font_pressed_color = Color(0.0431373, 0, 0.486275, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_wrvb3")
+Button/styles/focus = SubResource("StyleBoxEmpty_uig3q")
+Button/styles/hover = SubResource("StyleBoxEmpty_803c8")
+Button/styles/normal = SubResource("StyleBoxEmpty_t0dnh")
+Button/styles/pressed = SubResource("StyleBoxEmpty_j0c5i")

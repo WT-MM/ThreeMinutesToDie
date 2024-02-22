@@ -1,17 +1,17 @@
 [gd_scene load_steps=46 format=3 uid="uid://lfju084ai38w"]
 
 [ext_resource type="Script" path="res://character/player.gd" id="1_olsbu"]
-[ext_resource type="Texture2D" uid="uid://cx0yrhsq6pxn5" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_attack1.png" id="2_65ef2"]
+[ext_resource type="Texture2D" uid="uid://blqr71st0d2a3" path="res://character/Cyborg_attack1-1.png.png" id="2_aathh"]
 [ext_resource type="Texture2D" uid="uid://b2ggrslxkhejc" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_run_attack.png" id="2_glmxx"]
-[ext_resource type="Texture2D" uid="uid://dloeckn18v2pu" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_run.png" id="2_hqwdr"]
-[ext_resource type="Texture2D" uid="uid://cicuvxw61xf1b" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_jump.png" id="2_xxp7l"]
-[ext_resource type="Texture2D" uid="uid://p8mgumhvdl3k" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_idle.png" id="3_h14l3"]
+[ext_resource type="Texture2D" uid="uid://bcp0smpl2t2vp" path="res://character/Cyborg_attack2-1.png.png" id="4_rdnq8"]
 [ext_resource type="Script" path="res://character/GroundState.gd" id="5_m4iyt"]
 [ext_resource type="Script" path="res://character/AirState.gd" id="6_kqfe7"]
-[ext_resource type="Texture2D" uid="uid://bt80ylu2vk2uu" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_attack2.png" id="6_xlbh4"]
+[ext_resource type="Texture2D" uid="uid://csopkj6shl48f" path="res://character/Cyborg_idle-1.png-1.png.png" id="6_ykasd"]
+[ext_resource type="Texture2D" uid="uid://ck1505umh11ls" path="res://character/Cyborg_jump-1.png.png" id="7_4tnc6"]
 [ext_resource type="Texture2D" uid="uid://48yf3l7ni02m" path="res://Free 3 Cyberpunk Sprites Pixel Art/3 Cyborg/Cyborg_attack3.png" id="7_6kukr"]
 [ext_resource type="Script" path="res://character/LandingState.gd" id="7_wy27p"]
 [ext_resource type="Script" path="res://character/stateDebugLabel.gd" id="8_q20m1"]
+[ext_resource type="Texture2D" uid="uid://c1gjsi5wscdqy" path="res://character/Cyborg_run-1.png-1.png.png" id="8_yv150"]
 [ext_resource type="Script" path="res://character/characterStateMachine.gd" id="9_0yiuv"]
 [ext_resource type="Script" path="res://character/Attack.gd" id="13_3ed66"]
 [ext_resource type="Script" path="res://character/Punch.gd" id="15_fig5u"]
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_65ef2")]
+"values": [ExtResource("2_aathh")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,7 +101,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_xlbh4")]
+"values": [ExtResource("4_rdnq8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -194,7 +194,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_h14l3")]
+"values": [ExtResource("6_ykasd")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -234,7 +234,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_xxp7l")]
+"values": [ExtResource("7_4tnc6")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -275,7 +275,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hqwdr")]
+"values": [ExtResource("8_yv150")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -428,13 +428,12 @@ script = ExtResource("1_olsbu")
 speed = 125.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("3_h14l3")
-centered = false
+position = Vector2(2.08165e-12, -8)
+texture = ExtResource("6_ykasd")
 hframes = 4
 
 [node name="characterCollision" type="CollisionShape2D" parent="."]
-position = Vector2(14, 31)
+position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_3q31n")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -476,23 +475,25 @@ wait_time = 0.3
 one_shot = true
 
 [node name="stateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-offset_left = -30.0
-offset_top = -35.0
-offset_right = 10.0
-offset_bottom = -12.0
+offset_left = -36.0
+offset_top = -53.0
+offset_right = 13.0
+offset_bottom = -30.0
 text = "State: "
 script = ExtResource("8_q20m1")
 state_machine = NodePath("../characterStateMachine")
 
 [node name="Punch" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_shape")]
+position = Vector2(-22, -16)
 collision_layer = 0
 collision_mask = 4
+monitoring = false
 script = ExtResource("15_fig5u")
 player = NodePath("..")
 facing_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Punch"]
-position = Vector2(27, 31)
+position = Vector2(37, 15)
 shape = SubResource("RectangleShape2D_0pe7p")
 script = ExtResource("16_427xh")
 facing_left_position = Vector2(-3, 5)
