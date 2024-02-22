@@ -15,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 
 var playerPos = Vector2();
+var playerWorldPos = Vector2();
 
 signal facing_direction_changed(facing_right: bool)
 

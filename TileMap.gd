@@ -6,6 +6,7 @@ var altitude = FastNoiseLite.new()
 
 var width = 16
 var height = 16
+var cell_size = 16
 
 var ground_y = 0
 
@@ -63,7 +64,35 @@ func generate_ground(start, end):
 			elif randf() < 0.04:  #Skull - just want a few scattered around
 				place2x2(Vector2i(x, ground_y), Vector2i(4,5), 1, 1)
 
-			
+func add_door_at_position(position: Vector2):
+	var door_area = Area2D.new()
+	door_area.name = "DoorArea"
+	var collision_shape = CollisionShape2D.new()
+	var shape = RectangleShape2D.new()
+	shape.extents = Vector2(16, 32)  # Adjust the size to fit your door's dimensions
+	collision_shape.shape = shape
+	door_area.add_child(collision_shape)
+	
+	# Optionally, set the position of the Area2D to match the door tile's position
+	# This might need adjustment depending on your tile size and how you've setup your TileMap
+	door_area.position = position * cell_size + cell_size / 2
+	
+	# Connect the Area2D signals for interaction
+	door_area.connect("body_entered",Callable(door_area.parent(), "_on_DoorArea_body_entered"))
+	door_area.connect("body_exited", Callable(door_area.parent(), "_on_DoorArea_body_exited"))
+	
+	# Add the Area2D to the TileMap or another parent node
+	add_child(door_area)
+	
+func _on_DoorArea_body_entered(body):
+	if body.name == "Player":
+		# Logic when the player is near enough to interact with the door
+		print("Player can interact with the door")
+
+func _on_DoorArea_body_exited(body):
+	if body.name == "Player":
+		# Logic for when the player leaves the door's interaction area
+		print("Player left the door's interaction area")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
