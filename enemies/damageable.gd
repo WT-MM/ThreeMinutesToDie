@@ -25,3 +25,4 @@ func hit(damage: int, knockback_direction : Vector2):
 func _on_animation_tree_animation_finished(anim_name):
 	if(anim_name == dead_animation_name):
 		get_parent().queue_free()
+		# maybe add a timer so the body does not disappear instantly

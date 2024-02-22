@@ -189,6 +189,7 @@ hit_state = NodePath("characterStateMachine/Hit")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_wtju7")
+flip_h = true
 hframes = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -200,7 +201,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_g2ubc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 5)
+position = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_kuiow")
 
 [node name="damageable" type="Node" parent="."]
@@ -228,7 +229,7 @@ return_state = NodePath("../Walk")
 can_move = false
 
 [node name="Timer" type="Timer" parent="characterStateMachine/Hit"]
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="damageable" method="_on_animation_tree_animation_finished"]
