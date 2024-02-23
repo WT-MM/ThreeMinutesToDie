@@ -60,7 +60,8 @@ func generate_ground(start, end):
 			var moisture_level = moisture.get_noise_1d(x)
 						#Generate rooms
 			if randf() < 0.07: 
-				place3x3(Vector2i(x, ground_y), Vector2i(0,12), 3, 2)
+				place3x3(Vector2(x, ground_y), Vector2i(0,12), 3, 2)
+				add_door_at_position(Vector2i(x, ground_y))
 			elif randf() < 0.04:  #Skull - just want a few scattered around
 				place2x2(Vector2i(x, ground_y), Vector2i(4,5), 1, 1)
 
@@ -75,16 +76,18 @@ func add_door_at_position(position: Vector2):
 	
 	# Optionally, set the position of the Area2D to match the door tile's position
 	# This might need adjustment depending on your tile size and how you've setup your TileMap
-	door_area.position = position * cell_size + cell_size / 2
+	door_area.position = Vector2(position.x * cell_size, 308)
+	print(door_area.position)
 	
 	# Connect the Area2D signals for interaction
-	door_area.connect("body_entered",Callable(door_area.parent(), "_on_DoorArea_body_entered"))
-	door_area.connect("body_exited", Callable(door_area.parent(), "_on_DoorArea_body_exited"))
+	door_area.connect("body_entered",Callable($TileMap, "_on_DoorArea_body_entered"))
+	door_area.connect("body_exited", Callable($TileMap, "_on_DoorArea_body_exited"))
 	
 	# Add the Area2D to the TileMap or another parent node
 	add_child(door_area)
 	
 func _on_DoorArea_body_entered(body):
+	print("ENTERED")
 	if body.name == "Player":
 		# Logic when the player is near enough to interact with the door
 		print("Player can interact with the door")

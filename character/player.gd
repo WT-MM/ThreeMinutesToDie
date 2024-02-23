@@ -21,6 +21,7 @@ signal facing_direction_changed(facing_right: bool)
 
 func _process(delta):
 	playerPos = self.position
+	#print(playerPos)
 	
 func _ready():
 	animation_tree.active = true
