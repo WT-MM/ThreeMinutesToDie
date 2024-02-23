@@ -19,12 +19,20 @@ var playerWorldPos = Vector2();
 
 signal facing_direction_changed(facing_right: bool)
 
+@onready var item_pickup_area : Area2D = $ItemPickUpArea
+
 func _process(delta):
 	playerPos = self.position
 	#print(playerPos)
 	
 func _ready():
+	add_to_group("Player")
 	animation_tree.active = true
+
+func _on_area_enter(area):
+	if area.has_method("collect"):
+		area.collect()
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,6 +44,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("Left", "Right", "Up", "Down")
+	
 	
 	if direction.x != 0 && state_machine.check_if_can_move():
 		velocity.x = direction.x * speed
@@ -57,3 +66,7 @@ func update_facing_direction():
 		
 	
 	emit_signal("facing_direction_changed", !sprite.flip_h)
+
+func player():
+	pass
+

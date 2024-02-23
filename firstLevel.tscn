@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=27 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dfswljj516v17" path="res://UI/health_change.tscn" id="16_apo5f"]
 [ext_resource type="Script" path="res://UI/health_change.gd" id="17_6ocoo"]
 [ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
+[ext_resource type="PackedScene" uid="uid://dnp8aqe46nwvv" path="res://items/energyTwo.tscn" id="21_q0wt1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhtdq"]
 texture = ExtResource("1_w85ul")
@@ -2773,7 +2774,7 @@ script = ExtResource("1_4j3xa")
 script = ExtResource("1_kvfyj")
 
 [node name="ParallaxSprite8" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(-10555, -5364)
+position = Vector2(-10419, -5144)
 scale = Vector2(55.237, 52.3982)
 texture = ExtResource("1_8jx30")
 centered = false
@@ -2884,3 +2885,5 @@ position = Vector2(488, 300)
 [node name="HealthChange" parent="." instance=ExtResource("16_apo5f")]
 script = ExtResource("17_6ocoo")
 health_changed_label = ExtResource("18_gpn0x")
+
+[node name="Node" parent="." instance=ExtResource("21_q0wt1")]

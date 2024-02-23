@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://lfju084ai38w"]
+[gd_scene load_steps=47 format=3 uid="uid://lfju084ai38w"]
 
 [ext_resource type="Script" path="res://character/player.gd" id="1_olsbu"]
 [ext_resource type="Texture2D" uid="uid://blqr71st0d2a3" path="res://character/Cyborg_attack1-1.png.png" id="2_aathh"]
@@ -20,6 +20,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3q31n"]
 radius = 8.0
 height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf4c1"]
+size = Vector2(25, 35)
 
 [sub_resource type="Animation" id="Animation_gtnxt"]
 length = 0.001
@@ -435,6 +438,14 @@ hframes = 4
 [node name="characterCollision" type="CollisionShape2D" parent="."]
 position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_3q31n")
+
+[node name="ItemPickUpArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickUpArea"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_bf4c1")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
