@@ -496,8 +496,8 @@ facing_shape = NodePath("CollisionShape2D")
 position = Vector2(37, 15)
 shape = SubResource("RectangleShape2D_0pe7p")
 script = ExtResource("16_427xh")
-facing_left_position = Vector2(-3, 5)
-facing_right_position = Vector2(3, 5)
+facing_left_position = Vector2(11, 15)
+facing_right_position = Vector2(37, 15)
 
 [connection signal="animation_finished" from="AnimationTree" to="characterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="characterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
