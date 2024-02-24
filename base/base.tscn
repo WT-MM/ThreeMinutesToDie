@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c22mv3yvi74el"]
+
+[ext_resource type="Script" path="res://base/base.gd" id="1_3swud"]
+[ext_resource type="Texture2D" uid="uid://com63v00p3bm6" path="res://Free 3 Cyberpunk Sprites Pixel Art/1 Biker/Biker_idle.png" id="1_yomqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f24y"]
+size = Vector2(22, 34)
+
+[node name="Base" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_3swud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yomqb")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 7)
+shape = SubResource("RectangleShape2D_2f24y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
