@@ -2894,9 +2894,10 @@ position = Vector2(378, 299)
 [node name="Base" parent="." instance=ExtResource("22_6pmye")]
 position = Vector2(550, 299)
 
-[node name="Sprite2D" parent="Base" index="0"]
-process_mode = 3
-
 [node name="baseMenu" parent="Base" instance=ExtResource("23_365sg")]
+visible = false
+
+[node name="Sprite2D" parent="Base" index="1"]
+process_mode = 3
 
 [editable path="Base"]

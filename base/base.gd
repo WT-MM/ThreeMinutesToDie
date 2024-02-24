@@ -13,4 +13,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if(body.name == "player"):
 		get_tree().paused = true
+		get_node("baseMenu").visible = true
 		get_node("baseMenu/AnimationPlayer").play("TransIn")
