@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdywjv6r0e05c"]
+[gd_scene load_steps=10 format=3 uid="uid://cdywjv6r0e05c"]
 
 [ext_resource type="Script" path="res://base/baseMenu.gd" id="1_ppfrn"]
 [ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="2_1s7ya"]
 [ext_resource type="Texture2D" uid="uid://d2uy4i4qb288q" path="res://items/New Piskel-1.png.png" id="3_ngbju"]
+[ext_resource type="Script" path="res://base/Label.gd" id="4_e0hwv"]
 
 [sub_resource type="Animation" id="Animation_424pi"]
 length = 0.001
@@ -115,11 +116,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(940, 389)
 scale = Vector2(5, 5)
@@ -140,4 +136,15 @@ theme_override_colors/font_outline_color = Color(0.266667, 0.266667, 0.266667, 1
 theme_override_font_sizes/font_size = 50
 text = "Go"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 401.0
+offset_top = 161.0
+offset_right = 555.0
+offset_bottom = 201.0
+theme = ExtResource("2_1s7ya")
+theme_override_font_sizes/font_size = 30
+uppercase = true
+script = ExtResource("4_e0hwv")
+
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Control/Go" to="." method="_on_go_pressed"]
