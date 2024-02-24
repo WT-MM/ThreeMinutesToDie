@@ -1,6 +1,6 @@
 extends Node
 
-var energy = 0
+var energy = 9
 
 var items = {
 	0: {
