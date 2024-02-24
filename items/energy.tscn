@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8tgp6r5d3rpd"]
+
+[ext_resource type="Script" path="res://items/energy.gd" id="1_durmk"]
+[ext_resource type="Texture2D" uid="uid://d2uy4i4qb288q" path="res://items/New Piskel-1.png.png" id="1_wclsf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlqe6"]
+size = Vector2(13, 19)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_durmk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(0.78125, 0.8125)
+texture = ExtResource("1_wclsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_xlqe6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

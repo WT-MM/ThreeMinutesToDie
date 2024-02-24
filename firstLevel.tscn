@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dfswljj516v17" path="res://UI/health_change.tscn" id="16_apo5f"]
 [ext_resource type="Script" path="res://UI/health_change.gd" id="17_6ocoo"]
 [ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
-[ext_resource type="PackedScene" uid="uid://dnp8aqe46nwvv" path="res://items/energyTwo.tscn" id="21_q0wt1"]
+[ext_resource type="PackedScene" uid="uid://c8tgp6r5d3rpd" path="res://items/energy.tscn" id="21_qea0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhtdq"]
 texture = ExtResource("1_w85ul")
@@ -2886,4 +2886,5 @@ position = Vector2(488, 300)
 script = ExtResource("17_6ocoo")
 health_changed_label = ExtResource("18_gpn0x")
 
-[node name="Node" parent="." instance=ExtResource("21_q0wt1")]
+[node name="energy" parent="." instance=ExtResource("21_qea0i")]
+position = Vector2(378, 299)
