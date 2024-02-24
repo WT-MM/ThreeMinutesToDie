@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=30 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c8tgp6r5d3rpd" path="res://items/energy.tscn" id="21_qea0i"]
 [ext_resource type="PackedScene" uid="uid://c22mv3yvi74el" path="res://base/base.tscn" id="22_6pmye"]
 [ext_resource type="PackedScene" uid="uid://cdywjv6r0e05c" path="res://base/baseMenu.tscn" id="23_365sg"]
+[ext_resource type="AudioStream" uid="uid://c0ddkcaufeh2p" path="res://8-Bit_THE_STROKES_Call_it_Fate_Call_it_Karma.mp3" id="24_3na05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhtdq"]
 texture = ExtResource("1_w85ul")
@@ -2900,5 +2901,10 @@ process_mode = 3
 [node name="baseMenu" parent="Base" instance=ExtResource("23_365sg")]
 visible = false
 transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_3na05")
+volume_db = -19.676
+autoplay = true
 
 [editable path="Base"]
