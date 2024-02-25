@@ -67,12 +67,13 @@ func generate_ground(start, end):
 
 func add_door_at_position(position: Vector2):
 	var worldPos = to_global(map_to_local(position))
+	worldPos.x -= 29 #dont question the magic number
 	
 	var door_area = Area2D.new()
 	door_area.name = "DoorArea"
 	var collision_shape = CollisionShape2D.new()
 	var shape = RectangleShape2D.new()
-	shape.extents = Vector2(16, 32)  # Adjust the size to fit your door's dimensions
+	shape.extents = Vector2(8, 32)  # Adjust the size to fit your door's dimensions
 	collision_shape.shape = shape
 	door_area.add_child(collision_shape)
 	
@@ -90,8 +91,9 @@ func add_door_at_position(position: Vector2):
 	
 func _on_DoorArea_body_entered(body):
 	print("ENTERED")
-	if body.name == "Player":
+	if body.name == "player":
 		# Logic when the player is near enough to interact with the door
+		body.atDoor = true
 		print("Player can interact with the door")
 
 func _on_DoorArea_body_exited(body):
