@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://rt10y0ti5npa"]
+[gd_scene load_steps=4 format=3 uid="uid://rt10y0ti5npa"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_bw0ik"]
+
+[sub_resource type="SystemFont" id="SystemFont_sqbdp"]
+font_weight = 525
+font_stretch = 150
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ys86"]
+font = SubResource("SystemFont_sqbdp")
+font_size = 29
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_bw0ik")
@@ -14,6 +22,15 @@ text = "Start Game
 "
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
 zoom = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -147.0
+offset_top = -95.0
+offset_right = 151.0
+offset_bottom = -55.0
+text = "Three Minutes To Die"
+label_settings = SubResource("LabelSettings_5ys86")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
