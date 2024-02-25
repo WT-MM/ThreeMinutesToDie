@@ -80,6 +80,11 @@ func add_door_at_position(position: Vector2):
 	# This might need adjustment depending on your tile size and how you've setup your TileMap
 	door_area.position = worldPos
 	print(door_area.position)
+	
+	# Connect the Area2D signals for interaction
+	door_area.connect("body_entered",Callable($TileMap, "_on_DoorArea_body_entered"))
+	door_area.connect("body_exited", Callable($TileMap, "_on_DoorArea_body_exited"))
+	
 	# Add the Area2D to the TileMap or another parent node
 	add_child(door_area)
 	

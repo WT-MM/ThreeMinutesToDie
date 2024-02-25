@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=32 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bir3efwp0koc1" path="res://TileSets/Tiles.png" id="14_jss51"]
 [ext_resource type="PackedScene" uid="uid://dfswljj516v17" path="res://UI/health_change.tscn" id="16_apo5f"]
 [ext_resource type="Script" path="res://UI/health_change.gd" id="17_6ocoo"]
+[ext_resource type="Script" path="res://PlayerArea2D.gd" id="17_lk4bo"]
 [ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
 [ext_resource type="PackedScene" uid="uid://c8tgp6r5d3rpd" path="res://items/energy.tscn" id="21_qea0i"]
 [ext_resource type="PackedScene" uid="uid://c22mv3yvi74el" path="res://base/base.tscn" id="22_6pmye"]
@@ -2769,6 +2770,9 @@ sources/1 = SubResource("TileSetAtlasSource_dlf5w")
 sources/3 = SubResource("TileSetAtlasSource_ego3l")
 sources/2 = SubResource("TileSetAtlasSource_jso2j")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqrq5"]
+size = Vector2(23.5, 35.5)
+
 [node name="firstLevel" type="Node2D"]
 position = Vector2(1, 4)
 script = ExtResource("1_4j3xa")
@@ -2868,6 +2872,13 @@ position = Vector2(-1, 4)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="Area2D" type="Area2D" parent="player"]
+script = ExtResource("17_lk4bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+position = Vector2(-1.25, -0.75)
+shape = SubResource("RectangleShape2D_jqrq5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -60)
