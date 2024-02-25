@@ -23,7 +23,7 @@ signal facing_direction_changed(facing_right: bool)
 
 func _process(delta):
 	playerPos = self.position
-	#print(playerPos)
+	print(playerPos)
 	
 func _ready():
 	add_to_group("Player")
