@@ -20,6 +20,6 @@ func _process(delta):
 				#print("Changing scene")
 				print("OBJECT POSITION: " + str(door.position) + "   NAME: " + 
 				door.name)
-				pass
+				get_tree().change_scene_to_file("res://RoomInterior.tscn")
 				#Change scene
 	
