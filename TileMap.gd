@@ -66,6 +66,8 @@ func generate_ground(start, end):
 				place2x2(Vector2i(x, ground_y), Vector2i(4,5), 1, 1)
 
 func add_door_at_position(position: Vector2):
+	var worldPos = to_global(map_to_local(position))
+	
 	var door_area = Area2D.new()
 	door_area.name = "DoorArea"
 	var collision_shape = CollisionShape2D.new()
@@ -76,13 +78,8 @@ func add_door_at_position(position: Vector2):
 	
 	# Optionally, set the position of the Area2D to match the door tile's position
 	# This might need adjustment depending on your tile size and how you've setup your TileMap
-	door_area.position = Vector2(position.x * cell_size, 308)
+	door_area.position = worldPos
 	print(door_area.position)
-	
-	# Connect the Area2D signals for interaction
-	door_area.connect("body_entered",Callable($TileMap, "_on_DoorArea_body_entered"))
-	door_area.connect("body_exited", Callable($TileMap, "_on_DoorArea_body_exited"))
-	
 	# Add the Area2D to the TileMap or another parent node
 	add_child(door_area)
 	
