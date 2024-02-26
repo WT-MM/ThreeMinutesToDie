@@ -18,6 +18,8 @@ func _process(delta):
 	
 	text = "Time: " + (str(m) + ":" + str(s))
 	
+	Global.m = m
+	Global.s = s
 
 
 func _on_timer_timeout():
