@@ -2901,13 +2901,14 @@ script = ExtResource("17_6ocoo")
 health_changed_label = ExtResource("18_gpn0x")
 
 [node name="energy" parent="." instance=ExtResource("21_qea0i")]
-position = Vector2(378, 299)
+position = Vector2(-86, -5)
 
 [node name="Base" parent="." instance=ExtResource("22_6pmye")]
-position = Vector2(550, 299)
+position = Vector2(75, -5)
 
 [node name="Sprite2D" parent="Base" index="0"]
 process_mode = 3
+z_index = -1
 
 [node name="baseMenu" parent="Base" instance=ExtResource("23_365sg")]
 visible = false

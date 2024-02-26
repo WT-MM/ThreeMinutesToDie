@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c22mv3yvi74el"]
+[gd_scene load_steps=5 format=3 uid="uid://c22mv3yvi74el"]
 
 [ext_resource type="Script" path="res://base/base.gd" id="1_3swud"]
 [ext_resource type="Texture2D" uid="uid://com63v00p3bm6" path="res://Free 3 Cyberpunk Sprites Pixel Art/1 Biker/Biker_idle.png" id="1_yomqb"]
+[ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="3_dkl7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f24y"]
 size = Vector2(22, 34)
@@ -19,4 +20,14 @@ hframes = 4
 position = Vector2(-10, 7)
 shape = SubResource("RectangleShape2D_2f24y")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -39.0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -16.0
+theme = ExtResource("3_dkl7h")
+text = "Press E"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
