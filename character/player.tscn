@@ -428,7 +428,7 @@ size = Vector2(9, 32)
 position = Vector2(-2, 2)
 collision_layer = 2
 script = ExtResource("1_olsbu")
-speed = 125.0
+speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, -8)

@@ -11,3 +11,5 @@ func _on_body_entered(body):
 		tween.tween_property(self, "modulate:a", 0.0, 0.3)
 		
 		tween.tween_callback(self.queue_free)
+
+

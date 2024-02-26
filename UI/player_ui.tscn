@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://eesvb6pn317s"]
+
+[ext_resource type="Texture2D" uid="uid://d2uy4i4qb288q" path="res://items/New Piskel-1.png.png" id="1_qtq02"]
+[ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="2_aut4s"]
+[ext_resource type="Script" path="res://UI/energyUICount.gd" id="2_ja568"]
+[ext_resource type="Script" path="res://UI/HPBar.gd" id="5_ohsj0"]
+[ext_resource type="Texture2D" path="res://items/hp.png" id="5_wpksx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebpoe"]
+bg_color = Color(0.466667, 0.466667, 0.466667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwwty"]
+bg_color = Color(0.176471, 0.658824, 0.364706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="playerUI" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 197.0
+offset_bottom = 213.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_qtq02")
+
+[node name="energyUICount" type="Label" parent="."]
+offset_left = 117.0
+offset_top = 37.0
+offset_right = 325.0
+offset_bottom = 216.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("2_aut4s")
+theme_override_font_sizes/font_size = 100
+text = "10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ja568")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1176.0
+offset_top = 37.0
+offset_right = 1523.0
+offset_bottom = 384.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_wpksx")
+
+[node name="healthBar" type="ProgressBar" parent="."]
+offset_left = 1334.0
+offset_top = 59.0
+offset_right = 1458.0
+offset_bottom = 86.0
+scale = Vector2(4, 4)
+theme_override_styles/background = SubResource("StyleBoxFlat_ebpoe")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xwwty")
+show_percentage = false
+script = ExtResource("5_ohsj0")

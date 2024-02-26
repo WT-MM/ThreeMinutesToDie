@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=34 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://UI/health_change.gd" id="17_6ocoo"]
 [ext_resource type="Script" path="res://PlayerArea2D.gd" id="17_lk4bo"]
 [ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
+[ext_resource type="PackedScene" uid="uid://eesvb6pn317s" path="res://UI/player_ui.tscn" id="18_k86yq"]
 [ext_resource type="PackedScene" uid="uid://c8tgp6r5d3rpd" path="res://items/energy.tscn" id="21_qea0i"]
 [ext_resource type="PackedScene" uid="uid://c22mv3yvi74el" path="res://base/base.tscn" id="22_6pmye"]
 [ext_resource type="PackedScene" uid="uid://cdywjv6r0e05c" path="res://base/baseMenu.tscn" id="23_365sg"]
@@ -2894,8 +2895,11 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
+[node name="playerUI" parent="." instance=ExtResource("18_k86yq")]
+layer = 20
+
 [node name="skeleton" parent="." instance=ExtResource("14_ebb7t")]
-position = Vector2(488, 300)
+position = Vector2(190, -5)
 
 [node name="HealthChange" parent="." instance=ExtResource("16_apo5f")]
 script = ExtResource("17_6ocoo")
@@ -2922,5 +2926,11 @@ autoplay = true
 
 [node name="medkit" parent="." instance=ExtResource("26_clyei")]
 position = Vector2(-51, 8)
+
+[node name="medkit2" parent="." instance=ExtResource("26_clyei")]
+position = Vector2(-132, 8)
+
+[node name="medkit3" parent="." instance=ExtResource("26_clyei")]
+position = Vector2(-188, 8)
 
 [editable path="Base"]
