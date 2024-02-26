@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hhigem0ib3q"]
-
-[ext_resource type="Script" path="res://enemies/test_skeleton_2.gd" id="1_lpvhd"]
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_lpvhd")

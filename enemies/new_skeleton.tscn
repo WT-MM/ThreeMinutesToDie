@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckiculhel3goj"]
+
+[ext_resource type="Texture2D" uid="uid://bcth8a1nm80me" path="res://enemies/Skeleton Idle.png" id="1_er62t"]
+[ext_resource type="Script" path="res://enemies/CharacterBody2D.gd" id="1_ymkk7"]
+
+[node name="Node" type="Node"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ymkk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_er62t")
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="LeftBound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound"]
+
+[node name="rightBound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightBound"]
