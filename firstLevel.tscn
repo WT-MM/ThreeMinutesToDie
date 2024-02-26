@@ -2786,7 +2786,7 @@ position = Vector2(1, 4)
 script = ExtResource("1_kvfyj")
 
 [node name="ParallaxSprite8" type="Sprite2D" parent="firstLevel/ParallaxBackground"]
-position = Vector2(-9756, -4805)
+position = Vector2(-9553, -4617)
 scale = Vector2(55.237, 52.3982)
 texture = ExtResource("1_8jx30")
 centered = false
@@ -2873,6 +2873,7 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("13_vtrg0")
 
 [node name="player" parent="firstLevel" instance=ExtResource("3_htets")]
+z_index = 10
 position = Vector2(-1, 4)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="firstLevel/player"]
@@ -2908,6 +2909,7 @@ offset_right = 1.0
 offset_bottom = 4.0
 
 [node name="skeleton" parent="firstLevel" instance=ExtResource("14_ebb7t")]
+z_index = 3
 position = Vector2(190, -5)
 
 [node name="HealthChange" parent="firstLevel" instance=ExtResource("16_apo5f")]
@@ -2918,13 +2920,15 @@ health_changed_label = ExtResource("18_gpn0x")
 position = Vector2(-86, -5)
 
 [node name="Base" parent="firstLevel" instance=ExtResource("22_6pmye")]
-position = Vector2(75, -5)
+z_index = 2
+position = Vector2(100, -90)
 
 [node name="Sprite2D" parent="firstLevel/Base" index="0"]
 process_mode = 3
 z_index = -1
 
 [node name="baseMenu" parent="firstLevel/Base" instance=ExtResource("23_365sg")]
+layer = 20
 visible = false
 transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 0, 0)
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://c22mv3yvi74el"]
 
 [ext_resource type="Script" path="res://base/base.gd" id="1_3swud"]
-[ext_resource type="Texture2D" uid="uid://com63v00p3bm6" path="res://Free 3 Cyberpunk Sprites Pixel Art/1 Biker/Biker_idle.png" id="1_yomqb"]
+[ext_resource type="Texture2D" uid="uid://h6xnief034lw" path="res://base/an-8-bit-retro-styled-pixel-art-illustration-of-an-iron-drill-free-png-1.png-2.png" id="2_gex64"]
 [ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="3_dkl7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f24y"]
-size = Vector2(22, 34)
+size = Vector2(205, 316)
 
 [node name="Base" type="Area2D"]
 collision_layer = 3
@@ -13,19 +13,20 @@ collision_mask = 3
 script = ExtResource("1_3swud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yomqb")
-hframes = 4
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_gex64")
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 7)
+position = Vector2(1.5, -4)
+scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_2f24y")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -39.0
-offset_top = -32.0
-offset_right = 24.0
-offset_bottom = -16.0
+offset_left = -31.0
+offset_top = 17.0
+offset_right = 32.0
+offset_bottom = 33.0
 theme = ExtResource("3_dkl7h")
 text = "Press E"
 
