@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://eesvb6pn317s"]
+[gd_scene load_steps=9 format=3 uid="uid://eesvb6pn317s"]
 
 [ext_resource type="Texture2D" uid="uid://d2uy4i4qb288q" path="res://items/New Piskel-1.png.png" id="1_qtq02"]
 [ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="2_aut4s"]
 [ext_resource type="Script" path="res://UI/energyUICount.gd" id="2_ja568"]
 [ext_resource type="Script" path="res://UI/HPBar.gd" id="5_ohsj0"]
 [ext_resource type="Texture2D" path="res://items/hp.png" id="5_wpksx"]
+[ext_resource type="Script" path="res://UI/gameTimer.gd" id="6_mgumv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebpoe"]
 bg_color = Color(0.466667, 0.466667, 0.466667, 1)
@@ -61,3 +62,17 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ebpoe")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xwwty")
 show_percentage = false
 script = ExtResource("5_ohsj0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 383.0
+offset_top = 59.0
+offset_right = 1054.0
+offset_bottom = 196.0
+theme = ExtResource("2_aut4s")
+theme_override_font_sizes/font_size = 80
+script = ExtResource("6_mgumv")
+
+[node name="Timer" type="Timer" parent="Label"]
+autostart = true
+
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
