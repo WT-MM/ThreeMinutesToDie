@@ -7,6 +7,11 @@ var m = 100
 var s = 100
 var game_over_state = false
 
+var player
+
+func store_player(player):
+	player = player
+
 func _process(delta):
 	if(health > 100):
 		health = 100

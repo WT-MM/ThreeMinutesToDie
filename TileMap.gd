@@ -16,7 +16,7 @@ func _ready():
 	moisture.seed = randi()
 	temperature.seed = randi()
 	altitude.seed = randi();
-	generate_ground(-100,100)
+	generate_ground(-400,400)
 	
 func place3x3(bottomLeftReal, bottomLeftAtlas, tileID, layerID):
 	
