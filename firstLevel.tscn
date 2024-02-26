@@ -2927,6 +2927,9 @@ position = Vector2(100, -90)
 process_mode = 3
 z_index = -1
 
+[node name="Label" parent="firstLevel/Base" index="2"]
+visible = false
+
 [node name="baseMenu" parent="firstLevel/Base" instance=ExtResource("23_365sg")]
 layer = 20
 visible = false
@@ -2939,11 +2942,5 @@ autoplay = true
 
 [node name="medkit" parent="firstLevel" instance=ExtResource("26_clyei")]
 position = Vector2(-51, 8)
-
-[node name="medkit2" parent="firstLevel" instance=ExtResource("26_clyei")]
-position = Vector2(-132, 8)
-
-[node name="medkit3" parent="firstLevel" instance=ExtResource("26_clyei")]
-position = Vector2(-188, 8)
 
 [editable path="firstLevel/Base"]
