@@ -1,11 +1,12 @@
 extends Area2D
 
 var door = null
+var levelManager;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	connect("area_exited", Callable(self, "_on_area_exited"))
-
+	levelManager = get_node("/root/Level1Manager")
 
 func _on_area_entered(area):
 	door = area
@@ -20,6 +21,7 @@ func _process(delta):
 				#print("Changing scene")
 				print("OBJECT POSITION: " + str(door.position) + "   NAME: " + 
 				door.name)
-				get_tree().change_scene_to_file("res://RoomInterior.tscn")
+				levelManager.suppressLevel()
+				#get_tree().change_scene_to_file("res://RoomInterior.tscn")
 				#Change scene
 	
