@@ -17,8 +17,10 @@ func _process(delta):
 		s = 59
 	
 	
-	
-	text = "Time: " + (str(m) + ":" + str(s))
+	if(s >= 10):
+		text = "Time: " + (str(m) + ":" + str(s))
+	else:
+		text = "Time: " + (str(m) + ":0" + str(s))
 	
 	Global.m = m
 	Global.s = s
