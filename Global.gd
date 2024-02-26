@@ -18,9 +18,13 @@ func _process(delta):
 	
 	if(Global.m == 0 && Global.s == 0): 
 		Global.time_out = true
+	else:
+		Global.time_out = false
 	
 	if(health == 0 || time_out == true):
 		game_over_state = true
+	else:
+		game_over_state = false
 
 var items = {
 	0: {
