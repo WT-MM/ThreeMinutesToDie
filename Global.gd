@@ -1,6 +1,7 @@
 extends Node
 
 var energy = 9
+var health = 100
 
 var items = {
 	0: {

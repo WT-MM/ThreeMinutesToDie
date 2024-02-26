@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxwd10bt37wnu"]
+[gd_scene load_steps=33 format=3 uid="uid://cxwd10bt37wnu"]
 
 [ext_resource type="Script" path="res://firstLevel.gd" id="1_4j3xa"]
 [ext_resource type="Texture2D" uid="uid://v5amw6iuw78x" path="res://Parallax_Backgrounds_Cave/7.png" id="1_8jx30"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c22mv3yvi74el" path="res://base/base.tscn" id="22_6pmye"]
 [ext_resource type="PackedScene" uid="uid://cdywjv6r0e05c" path="res://base/baseMenu.tscn" id="23_365sg"]
 [ext_resource type="AudioStream" uid="uid://c0ddkcaufeh2p" path="res://8-Bit_THE_STROKES_Call_it_Fate_Call_it_Karma.mp3" id="24_3na05"]
+[ext_resource type="PackedScene" uid="uid://r5b3ik8l5pr4" path="res://items/medkit.tscn" id="26_clyei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhtdq"]
 texture = ExtResource("1_w85ul")
@@ -2918,5 +2919,8 @@ transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 0, 0)
 stream = ExtResource("24_3na05")
 volume_db = -19.676
 autoplay = true
+
+[node name="medkit" parent="." instance=ExtResource("26_clyei")]
+position = Vector2(-51, 8)
 
 [editable path="Base"]
