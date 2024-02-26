@@ -5,7 +5,8 @@ class_name HitState
 @export var damageable : damageable
 @export var dead_state : State
 @export var dead_animation_node : String = "death"
-@export var knockback_speed : float = 100.0
+@export var hit_animation_node : String = "hit"
+@export var knockback_speed : float = 80.0
 @export var return_state : State
 
 @onready var timer : Timer = $Timer
@@ -20,6 +21,7 @@ func on_enter():
 
 func on_damageable_hit(node: Node, damage_amount: int, knockback_direction : Vector2):
 	if(damageable.health > 0):
+		playback.travel(hit_animation_node)
 		character.velocity = knockback_speed * knockback_direction
 		emit_signal("interrupt_state", self)
 	else:
