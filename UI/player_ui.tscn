@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://d040uwcj344ty" path="res://themes/default_theme.tres" id="2_aut4s"]
 [ext_resource type="Script" path="res://UI/energyUICount.gd" id="2_ja568"]
 [ext_resource type="Script" path="res://UI/HPBar.gd" id="5_ohsj0"]
-[ext_resource type="Texture2D" path="res://items/hp.png" id="5_wpksx"]
+[ext_resource type="Texture2D" uid="uid://b4i3ktfe1sg68" path="res://items/hp.png" id="5_wpksx"]
 [ext_resource type="Script" path="res://UI/gameTimer.gd" id="6_mgumv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebpoe"]
@@ -24,11 +24,19 @@ border_color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="playerUI" type="CanvasLayer"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="energyLogo" type="TextureRect" parent="."]
 offset_right = 197.0
 offset_bottom = 213.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_qtq02")
+
+[node name="heart" type="TextureRect" parent="."]
+offset_left = 1160.0
+offset_top = 37.0
+offset_right = 1507.0
+offset_bottom = 384.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_wpksx")
 
 [node name="energyUICount" type="Label" parent="."]
 offset_left = 117.0
@@ -43,14 +51,6 @@ text = "10
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_ja568")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 1176.0
-offset_top = 37.0
-offset_right = 1523.0
-offset_bottom = 384.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_wpksx")
 
 [node name="healthBar" type="ProgressBar" parent="."]
 offset_left = 1334.0
