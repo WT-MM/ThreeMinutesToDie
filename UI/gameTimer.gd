@@ -3,8 +3,8 @@ extends Label
 @onready var timer : Timer = $Timer
 # Called when the node enters the scene tree for the first time.
 
-var s = 0
-var m = 3
+@export var s = 0
+@export var m = 3
 
 func _ready():
 	timer.start()
@@ -15,6 +15,8 @@ func _process(delta):
 	if (s < 0 ):
 		m -= 1
 		s = 59
+	
+	
 	
 	text = "Time: " + (str(m) + ":" + str(s))
 	

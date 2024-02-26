@@ -2,21 +2,20 @@ extends Node
 
 var energy = 9
 var health = 80
-var time_out : bool = false
+var time_out = false
 var m = 100
 var s = 100
-
-func time_out_process():
-	if(m == 0 && s == 0): 
-		time_out = true
-
-func game_over():
-	if(health == 0 || time_out == true):
-		pass
+var game_over_state = false
 
 func _process(delta):
 	if(health > 100):
 		health = 100
+	
+	if(Global.m == 0 && Global.s == 0): 
+		Global.time_out = true
+	
+	if(health == 0 || time_out == true):
+		game_over_state = true
 
 var items = {
 	0: {
