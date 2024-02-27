@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://PlayerArea2D.gd" id="17_lk4bo"]
 [ext_resource type="PackedScene" uid="uid://6jbvvifug3ke" path="res://UI/health_changed_label.tscn" id="18_gpn0x"]
 [ext_resource type="PackedScene" uid="uid://eesvb6pn317s" path="res://UI/player_ui.tscn" id="18_k86yq"]
-[ext_resource type="PackedScene" uid="uid://qe24hk5se8x6" path="res://UI/transition.tscn" id="19_cd13h"]
+[ext_resource type="PackedScene" uid="uid://bjkh1dngcp8w3" path="res://UI/temptransition.tscn" id="19_cd13h"]
 [ext_resource type="PackedScene" uid="uid://c8tgp6r5d3rpd" path="res://items/energy.tscn" id="21_qea0i"]
 [ext_resource type="PackedScene" uid="uid://c22mv3yvi74el" path="res://base/base.tscn" id="22_6pmye"]
 [ext_resource type="PackedScene" uid="uid://cdywjv6r0e05c" path="res://base/baseMenu.tscn" id="23_365sg"]
@@ -2903,10 +2903,6 @@ drag_bottom_margin = 0.1
 layer = 20
 
 [node name="Transition" parent="firstLevel/playerUI" instance=ExtResource("19_cd13h")]
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 1.0
-offset_bottom = 4.0
 
 [node name="skeleton" parent="firstLevel" instance=ExtResource("14_ebb7t")]
 z_index = 3
