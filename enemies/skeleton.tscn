@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bhpd7crrx11af"]
+[gd_scene load_steps=31 format=3 uid="uid://bhpd7crrx11af"]
 
 [ext_resource type="Texture2D" uid="uid://c82m5gap0aa5l" path="res://enemies/Skeleton Dead.png" id="1_2nm7x"]
 [ext_resource type="Texture2D" uid="uid://bcth8a1nm80me" path="res://enemies/Skeleton Idle.png" id="1_13qql"]
@@ -6,12 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://uge8285m4cgi" path="res://enemies/Skeleton Walk.png" id="2_wtju7"]
 [ext_resource type="Script" path="res://enemies/damageable.gd" id="3_240ca"]
 [ext_resource type="Texture2D" uid="uid://cxymymrlbfhd4" path="res://enemies/Skeleton React.png" id="5_lrfum"]
-[ext_resource type="Texture2D" uid="uid://cv0lwabt3ai6f" path="res://enemies/Skeleton Attack-1.png-1.png-1.png-3.png" id="5_qa6rl"]
+[ext_resource type="Texture2D" uid="uid://cltcwwwwsa8e1" path="res://enemies/Skeleton Attack-1.png-1.png.png" id="6_8g3fx"]
 [ext_resource type="Script" path="res://character/State.gd" id="6_guuv3"]
 [ext_resource type="Script" path="res://character/characterStateMachine.gd" id="6_h3n3p"]
 [ext_resource type="Texture2D" uid="uid://iblx2rthfky" path="res://enemies/Skeleton Hit.png" id="6_xt7lv"]
 [ext_resource type="Script" path="res://enemies/HitState.gd" id="7_83g0l"]
-[ext_resource type="Script" path="res://enemies/Attack.gd" id="12_xayyp"]
 
 [sub_resource type="Animation" id="Animation_44vkh"]
 length = 0.001
@@ -152,7 +151,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4gwuf"]
 resource_name = "attack"
-length = 1.4
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,7 +162,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_qa6rl")]
+"values": [ExtResource("6_8g3fx")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -184,22 +183,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 16]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackRange:monitoring")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17]
 }
 
 [sub_resource type="Animation" id="Animation_kjjaq"]
@@ -333,9 +320,6 @@ height = 38.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1476w"]
 size = Vector2(353, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e63i"]
-size = Vector2(40, 50)
-
 [node name="skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 collision_layer = 4
 script = ExtResource("1_qn3ab")
@@ -343,9 +327,9 @@ hit_state = NodePath("characterStateMachine/Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_qa6rl")
+texture = ExtResource("2_wtju7")
 flip_h = true
-hframes = 18
+hframes = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -387,24 +371,11 @@ can_move = false
 wait_time = 0.2
 one_shot = true
 
-[node name="State" type="Node" parent="characterStateMachine"]
-script = ExtResource("12_xayyp")
-
-[node name="Timer" type="Timer" parent="characterStateMachine/State"]
-
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-5, 1)
 shape = SubResource("RectangleShape2D_1476w")
 
-[node name="AttackRange" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(-10, 3)
-shape = SubResource("RectangleShape2D_5e63i")
-
 [connection signal="animation_finished" from="AnimationTree" to="damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="characterStateMachine/Hit/Timer" to="characterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

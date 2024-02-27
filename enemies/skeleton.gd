@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-class_name enemy
-
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 @export var starting_move_direction : Vector2 = Vector2.LEFT
@@ -31,11 +29,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 
 	move_and_slide()
-
-func change_state():
-	movement_speed *= -1
-	#scale.x *= -1
-
-
-func _on_attack_range_body_entered(body):
-	pass # Replace with function body.

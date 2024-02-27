@@ -1,28 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckiculhel3goj"]
+[gd_scene load_steps=3 format=3 uid="uid://ckiculhel3goj"]
 
-[ext_resource type="Script" path="res://enemies/new_skeleton.gd" id="1_bmw74"]
-[ext_resource type="PackedScene" uid="uid://bhpd7crrx11af" path="res://enemies/skeleton.tscn" id="2_bmab2"]
+[ext_resource type="Texture2D" uid="uid://bcth8a1nm80me" path="res://enemies/Skeleton Idle.png" id="1_er62t"]
+[ext_resource type="Script" path="res://enemies/CharacterBody2D.gd" id="1_ymkk7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xffi"]
-size = Vector2(9, 20)
+[node name="Node" type="Node"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc3rq"]
-size = Vector2(8, 20)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ymkk7")
 
-[node name="new_skeleton" type="Node"]
-script = ExtResource("1_bmw74")
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_er62t")
+hframes = 11
 
-[node name="Bounds" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-184, 1)
-shape = SubResource("RectangleShape2D_7xffi")
+[node name="LeftBound" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(176, 0)
-shape = SubResource("RectangleShape2D_cc3rq")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound"]
 
-[node name="skeleton" parent="." instance=ExtResource("2_bmab2")]
+[node name="rightBound" type="Area2D" parent="."]
 
-[connection signal="area_entered" from="Bounds" to="." method="_on_bounds_area_entered"]
-[connection signal="body_entered" from="Bounds" to="." method="_on_bounds_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightBound"]
